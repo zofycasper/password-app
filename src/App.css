@@ -76,5 +76,15 @@ button {
     background: #273549;
     border-radius: 6px;
     width: 211px;
-    height: 39px;
+    height: 40px;
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 40px;
+    /* identical to box height, or 200% */
+
+    text-align: center;
+
+    color: #55f991;
 }

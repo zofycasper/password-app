@@ -3,8 +3,21 @@ import characters from "./characters";
 import "./App.css";
 
 export default function App() {
-    function getString() {
-        return characters.join("");
+    const [firstPassword, setFirstPassword] = React.useState("");
+    const [secondPassword, setSecondPassword] = React.useState("");
+
+    function getRandomString(length) {
+        let newRandomString = [];
+        for (let i = 0; i < length; i++) {
+            let randomNumber = Math.floor(Math.random() * characters.length);
+            newRandomString.push(characters[randomNumber]);
+        }
+        return newRandomString.join("");
+    }
+
+    function handleClick() {
+        setFirstPassword(getRandomString(10));
+        setSecondPassword(getRandomString(10));
     }
 
     return (
@@ -18,11 +31,11 @@ export default function App() {
                     Never use an insecure password again.
                 </h3>
             </header>
-            <button>Generate passwords</button>
+            <button onClick={handleClick}>Generate passwords</button>
 
             <div className="password-container">
-                <p className="first-password"></p>
-                <p className="second-password"></p>
+                <p className="first-password">{firstPassword}</p>
+                <p className="second-password">{secondPassword}</p>
             </div>
         </div>
     );
